@@ -10,7 +10,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-    userName: '',
+    username: '',
     loggingIn: false,
     isfetching: false,
     error: null
