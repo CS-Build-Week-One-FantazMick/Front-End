@@ -14,7 +14,7 @@ export const registerUser = register => dispatch => {
     dispatch({ type: REGISTER_START });
     return axios
         .post(
-            `www.poop.com `,
+            `https://multi-user-dungeon-lambda.herokuapp.com/api/registration/`,
             creds
         )
         .then(res => {
@@ -37,7 +37,7 @@ export const registerUser = register => dispatch => {
 export const loginUser = creds => dispatch => {
     dispatch({ type: LOGIN_START });
     return axios
-        .post(`www.poop.com`, creds)
+        .post(`https://multi-user-dungeon-lambda.herokuapp.com/api/login/`, creds)
         .then(res => {
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('UserName', res.data.UserName);
