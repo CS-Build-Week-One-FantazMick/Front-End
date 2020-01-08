@@ -14,10 +14,6 @@ function App() {
           alert(e.clientX)
         }}
       />
-      <button className="direction">N</button>
-      <button className="direction">S</button>
-      <button className="direction">E</button>
-      <button className="direction">W</button>
       <ClientRegistration/>
     </div>
   )
