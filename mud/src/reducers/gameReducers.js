@@ -15,7 +15,7 @@ import {
 
 const initialState = {
     loading: false,
-    player: { uuid: '', name: '' },
+    player: { uuid: '', user: '' },
     currentRoom: {},
     players: [],
     rooms: [],
@@ -29,7 +29,7 @@ const initialState = {
           loading: false,
           player: {
             uuid: action.payload.uuid,
-            name: action.payload.name,
+            user: action.payload.user,
           },
           currentRoom: {
             title: action.payload.title,
