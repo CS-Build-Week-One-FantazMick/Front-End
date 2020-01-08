@@ -4,6 +4,10 @@ import rootReducer from './reducers/index';
 
 const middleware = [thunk];
 
-const store = createStore(rootReducer, applyMiddleware(...middleware));
+const store = createStore(rootReducer,
+    //below is what will help redux devtools extension work! 
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(...middleware)
+);
 
 export default store;
