@@ -1,5 +1,6 @@
 import React from 'react'
-import Map from "./Map"
+import Map from "../map"
+import Player from "../player"
 
 function World(props) {
     return (
@@ -12,7 +13,7 @@ function World(props) {
             }}>
 
             <Map />
-            {/* <Player/> */}
+            <Player />
         </div>
     )
 }
