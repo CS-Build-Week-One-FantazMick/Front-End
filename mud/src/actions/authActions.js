@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { axiosWithAuth } from '../helpers'
 import {
     REGISTER_START,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    LOGIN_START
+    LOGIN_START,
 } from './types';
 
 //User Registration endpoint
@@ -54,5 +55,3 @@ export const loginUser = creds => dispatch => {
             });
         });
 };
-
-
