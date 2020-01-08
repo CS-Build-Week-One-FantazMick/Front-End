@@ -76,8 +76,8 @@ const Moving = () => {
         <div className="button-wrapper">
             <div className="moving-button" onClick={north()}>North</div>
             <div className="moving-button" onClick={south()}>South</div> 
-            <div className="moving-button" onClick={west()}>West</div>
             <div className="moving-button" onClick={east()}>East</div>
+            <div className="moving-button" onClick={west()}>West</div>
         </div>
     )
 }
