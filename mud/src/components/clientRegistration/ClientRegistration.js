@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios'
 // import { useDispatch } from 'react-redux';
 // import { loginCoach } from '../../../actions/authActions';
 // import { Link } from 'react-router-dom';
@@ -32,7 +33,12 @@ const ClientRegistration = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(creds)
+        axios.post(`https://multi-user-dungeon-lambda.herokuapp.com/api/registration/`, creds).then( res =>{
+        console.log(res.data.key)
+        localStorage.setItem('token', res.data.key)
+        }).then().catch(err =>{
+        console.log(err)
+        })
         
     };
     return (
