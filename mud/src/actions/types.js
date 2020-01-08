@@ -11,6 +11,14 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
+export const INIT_START = 'INIT';
+export const INIT_SUCCESS = 'INIT_SUCCESS'
+export const INIT_FAILURE = 'INIT_FAILURE'
+
+export const MOVE_START = 'MOVE';
+export const MOVE_SUCCESS = 'MOVE_SUCCESS'
+export const MOVE_FAILURE = 'MOVE_FAILURE'
+
 export const GET_ROOMS_START = 'GET_ROOMS_START';
 export const GET_ROOMS_SUCCESS = 'GET_ROOMS_SUCCESS';
 export const GET_ROOMS_FAILURE = 'GET_ROOMS_FAILURE';
@@ -18,3 +26,7 @@ export const GET_ROOMS_FAILURE = 'GET_ROOMS_FAILURE';
 export const GET_ROOM_START = 'GET_ROOM_START';
 export const GET_ROOM_SUCCESS = 'GET_ROOM_SUCCESS';
 export const GET_ROOM_FAILURE = 'GET_ROOM_FAILURE';
+
+export const SAY_START = 'SAY_START';
+export const SAY_SUCCESS = 'SAY_SUCCESS'
+export const SAY_FAILURE = 'SAY_FAILURE'
