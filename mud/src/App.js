@@ -1,12 +1,22 @@
 import React from 'react'
 import ClientLogin from "./components/clientLogin/ClientLogin"
 import ClientRegistration from "./components/clientRegistration/ClientRegistration"
+import NavBar from './components/NavBar/navbar'
 
 import World from "./components/world"
+
+import { Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div>
+      <NavBar />
+      <Switch>
+        <Route exact path='/login' component={ClientLogin}/>
+        <Route exact path='/register'component={ClientRegistration} />
+        <Route exact path='/game' component={World} />
+      </Switch>
+
       {/* <canvas
         style={{ background: 'green', display: 'flex', margin: '0 auto' }}
         width={window.innerWidth / 2}
@@ -15,8 +25,8 @@ function App() {
           alert(e.clientX)
         }}
       /> */}
-      <World />
-      <ClientRegistration />
+      {/* <World />
+      <ClientRegistration /> */}
     </div>
   )
 }
