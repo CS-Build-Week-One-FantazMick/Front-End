@@ -1,11 +1,11 @@
 import React from 'react'
-import  walkSprite  from './Toast.png'
+import walkSprite from './Toast.png'
 import handleMovement from './movement'
 
 import { connect } from 'react-redux'
 
-function Player(props){
-    return(
+function Player(props) {
+    return (
         <div style={{
             position: 'absolute',
             top: props.position[1],
@@ -15,11 +15,11 @@ function Player(props){
             width: '40px',
             height: '40px',
             backgroundSize: 'contain'
-        }}/>
+        }} />
     )
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
         ...state.player,
     }
