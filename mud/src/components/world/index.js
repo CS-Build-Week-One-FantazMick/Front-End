@@ -49,4 +49,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(handleMovement(World))
+export default connect(mapStateToProps)(World)

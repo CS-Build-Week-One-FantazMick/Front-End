@@ -1,3 +1,5 @@
+import axiosWithAuth from '../utils/axiosWithAuth'
+
 import {
     GET_ROOMS_FAILURE,
     GET_ROOMS_START,
@@ -16,15 +18,24 @@ import {
 
 ///INITIALIZE
 export const init = () => dispatch => {
-    dispatch({type: INIT_START});
-    return axiosWithAuth()
-        .get('api/adv/init/')
-        .then(response => {
-            dispatch({type: INIT_SUCCESS, payload: response.data})
-        })
-        .catch(error => {
-            dispatch({type: INIT_FAILURE, payload: 'Error starting up MUD'})
-        });
+  dispatch({ type: INIT_START });
+  return axiosWithAuth()
+  .get(`https://multi-user-dungeon-lambda.herokuapp.com/api/adv/init`)
+  .then(res => {
+      console.log(res)
+
+      dispatch({
+          type: INIT_SUCCESS,
+          payload: res.data.UserName
+      });
+  })
+  .catch(err => {
+      console.log(err)
+      dispatch({
+          type: INIT_FAILURE,
+          payload: err
+      });
+  });
 }
 
 //MOVE
@@ -44,7 +55,7 @@ export const move = direction => dispatch => {
 export const getRooms = () => dispatch => {
     dispatch({type: GET_ROOMS_START});
     return axiosWithAuth()
-      .get('api/adv/getallrooms/')
+      .get('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/getallrooms')
       .then(response => {
         dispatch({ type: GET_ROOMS_SUCCESS, payload: response.data });
       })
