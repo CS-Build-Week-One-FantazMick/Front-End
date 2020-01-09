@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FlexibleXYPlot, LineSeries, MarkSeries } from "react-vis";
 // import room_data from "./room_data.js";
 import styled from "styled-components";
+import store from "../../store"
 
 const StyledMap = styled.div`
     margin: 0 auto;
@@ -19,6 +20,7 @@ class Map extends Component {
         const coordinates = [];
         const links = [];
         const room_data = this.props.roomData;
+        const currentRoom = store.getState().player.position;
 
         // Loop through each room in the room_data object
         for (let room in room_data) {
@@ -45,6 +47,7 @@ class Map extends Component {
                             key={Math.random() * 100}
                         />
                     ))}
+
                     <MarkSeries
                         strokeWidth={3}
                         opacity="1"
@@ -57,9 +60,9 @@ class Map extends Component {
                     <MarkSeries
                         strokeWidth={3}
                         opacity="1"
-                        size="6"
+                        size="3"
                         color="#1ABC9C"
-                        data={[this.props.currentRoom]}
+                        data={[{ "x": currentRoom[0], "y": currentRoom[1] }]}
                         style={{ cursor: "pointer" }}
                     />
                 </FlexibleXYPlot>
