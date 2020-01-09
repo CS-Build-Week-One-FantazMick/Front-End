@@ -1,11 +1,11 @@
-const initialState={
-    position: [0,0]
+const initialState = {
+    position: [10, 10]
 }
 
-const playerReducer = (state=initialState, action) => {
-    switch(action.type){
+const playerReducer = (state = initialState, action) => {
+    switch (action.type) {
         case 'MOVE_PLAYER':
-            return{
+            return {
                 ...action.payload
             }
         default:
