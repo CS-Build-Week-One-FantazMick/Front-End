@@ -1,44 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'
-// import { useDispatch } from 'react-redux';
-// import { loginCoach } from '../../../actions/authActions';
-// import { Link } from 'react-router-dom';
-//Component Imports
-// import Modal from './Modal';
-
-// //Styling
-// import './loginCoach.scss';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../actions/authActions';
 
 
 const ClientRegistration = props => {
 
     const [creds, setCreds] = useState({username:'', email: '', password1: '' , password2:''});
-    // const [modal, setModal] = useState(false);
-
-    // const triggerModal = () => {
-    //     setModal(true);
-    // };
+    const dispatch = useDispatch()
 
     const handleChange = e => {
         setCreds({ ...creds, [e.target.name]: e.target.value });
     };
 
-    // useEffect(() => {
-    //     setCreds({
-    //         username : username,
-    //         email: email,
-    //         password: password
-    //     });
-    // }, [email, password, username]);
+
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.post(`https://multi-user-dungeon-lambda.herokuapp.com/api/registration/`, creds).then( res =>{
-        console.log(res.data.key)
-        localStorage.setItem('token', res.data.key)
-        }).then().catch(err =>{
-        console.log(err)
-        })
+        dispatch(registerUser(creds))
+        
         
     };
     return (
