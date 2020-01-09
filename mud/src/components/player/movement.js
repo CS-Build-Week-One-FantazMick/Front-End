@@ -32,29 +32,29 @@ export default function handleMovement(player){
             }
         })
     }
-    function handleKeyDown(e){
+    function handleKeyPress(e){
         e.preventDefault()
 
 
         switch(e.keyCode){
-            case 37:
+            case 119:
                 return directionMove('WEST')
 
-            case 38:
+            case 110:
                 return directionMove('NORTH')
 
-            case 40:
+            case 115:
                 return directionMove('SOUTH')
 
-            case 39:
+            case 101:
                 return directionMove('EAST')
             default:
                 console.log(e.keyCode)
         }
     }
 
-    window.addEventListener('keydown', (e) => {
-        handleKeyDown(e)
+    window.addEventListener('keypress', (e) => {
+        handleKeyPress(e)
     })
 
     return player

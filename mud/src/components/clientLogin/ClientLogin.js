@@ -33,6 +33,7 @@ const ClientLogin = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        e.
         console.log(creds)
         // localStorage.clear();
         // // dispatch(loginCoach(creds)).then(() => {

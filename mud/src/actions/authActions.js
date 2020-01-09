@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { axiosWithAuth } from '../helpers'
 import {
     REGISTER_START,
     REGISTER_SUCCESS,

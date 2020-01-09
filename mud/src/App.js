@@ -6,6 +6,7 @@ import NavBar from './components/NavBar/navbar'
 import World from "./components/world"
 
 import { Switch, Route } from 'react-router-dom'
+import PrivateRoute from './util/PrivateRoute'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path='/login' component={ClientLogin}/>
-        <Route exact path='/register'component={ClientRegistration} />
+        <Route exact path='/register' component={ClientRegistration} />
         <Route exact path='/game' component={World} />
       </Switch>
 
