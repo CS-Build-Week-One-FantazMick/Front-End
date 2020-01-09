@@ -21,7 +21,7 @@ class Navbar extends React.Component {
                     <Link to="#" className="links">Toast Adventures</Link>
                 </div>
                 <div className="navbar-right">
-                    <Link to="/login" className="links">Login</Link>
+                    <Link to="/" className="links">Login</Link>
                     <Link to="/register" className="links">Register</Link>
                     <Link to='/game' className="links">Game</Link>
                 </div>
