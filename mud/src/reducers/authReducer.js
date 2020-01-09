@@ -5,7 +5,7 @@ import {
     REGISTER_FAIL,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    LOGIN_START
+    LOGIN_START,
     // LOGOUT,
 } from '../actions/types';
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginUser,getPlayer } from '../../actions/authActions';
+import { loginUser, } from '../../actions/authActions';
+import { init } from '../../actions/gameActions';
 // import { Link } from 'react-router-dom';
 // import { ReactComponent as Logo } from '../../utils/assets/coachmelogo-white.svg';
 
@@ -19,6 +20,7 @@ const ClientLogin = props => {
  
 
     const handleChange = e => {
+        console.log('hi')
         setCreds({ ...creds, [e.target.name]: e.target.value });
     };
 
@@ -103,7 +105,7 @@ const ClientLogin = props => {
                             </div>
                         </div>
                     </form>
-                    <button type='submit' className='signup-btn' onClick ={ ()=> dispatch(getPlayer())}>
+                    <button type='submit' className='signup-btn' onClick ={ ()=> dispatch(init())}>
                                 {' '}
                                 get
                             </button>

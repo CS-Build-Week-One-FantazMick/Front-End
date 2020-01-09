@@ -1,5 +1,6 @@
 import axios from 'axios';
-import axiosWithAuth from '../utils/axiosWithAuth'
+// import axiosWithAuth from '../utils/axiosWithAuth'
+import { axiosWithAuth } from '../helpers'
 import {
     REGISTER_START,
     REGISTER_SUCCESS,
@@ -61,24 +62,4 @@ export const loginUser = creds => dispatch => {
         });
 };
 
-export const getPlayer = () => dispatch => {
-   
-    dispatch({ type: PLAYER_START });
-        return axiosWithAuth()
-        .get(`https://multi-user-dungeon-lambda.herokuapp.com/api/adv/init`)
-        .then(res => {
-            console.log(res)
 
-            dispatch({
-                type: PLAYER_SUCCESS,
-                payload: res.data.UserName
-            });
-        })
-        .catch(err => {
-            console.log(err)
-            dispatch({
-                type: LOGIN_FAIL,
-                payload: err
-            });
-        });
-};
