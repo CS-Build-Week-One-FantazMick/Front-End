@@ -10,6 +10,6 @@
 }
 .button-wrapper{
     display:flex;
-    flex-wrap:wrap;
-    width:40%;
+    justify-content: center;
+    width:100%;
 }

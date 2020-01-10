@@ -41,7 +41,6 @@ function World(props) {
 
             <RoomViewer />
             <Map roomData={roomData} />
-            <Moving></Moving>
             {/* <Player /> */}
         </div>
     )

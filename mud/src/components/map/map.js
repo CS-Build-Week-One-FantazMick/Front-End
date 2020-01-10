@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FlexibleXYPlot, LineSeries, MarkSeries } from "react-vis";
 import { useDispatch, useSelector } from 'react-redux';
-
+import Moving from '../clientMovement/Moving'
 import styled from "styled-components";
 import store from "../../store"
 
@@ -78,6 +78,7 @@ const Map = (props) => {
                         style={{ cursor: "pointer" }}
                     />
                 </FlexibleXYPlot>
+                <Moving />
             </StyledMap>
         );
     
