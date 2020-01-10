@@ -16,6 +16,8 @@ const StyledMap = styled.div`
 `;
 
 const Map = (props) => {
+    const state = useSelector(state => state.player);
+    console.log("position",state.position)
     
     
         // Create arrays to hold point coordinates and links
@@ -34,30 +36,16 @@ const Map = (props) => {
         for (let room in room_data) {
             // Set data equal to the first element (x, y coordinates)
             // in each room of the room_data object
-            let data = {'x': room_data[room]['x'], 'y': room_data[room]['y']};
-            console.log(data, 'DATA')
+            let data = room_data[room][0];
+            console.log("DATA1", room_data[room][0])
             coordinates.push(data);
-            console.log(room_data[room], "undefined?")
-            console.log("NORTH TO",room_data[room]['n_to'])
-
-            for (let [adjacentRoom, i] of Object.entries(room_data[room])) {
-                if( i != 0){
-                    room_data.filter( room =>{
-                         if(room.id === i ) {
-                             console.log('###########',room.x, room.y)
-                         }
-                    })
-                    
-                }
+            for (let adjacentRoom in room_data[room][1]) {
                 links.push([
-                    {'x': room_data[room]['x'], 'y': room_data[room]['y']},
-                    // {'x': room_data[room]['n_to']['x']['y'][adjacentRoom], 'y': room_data[room]['n_to']['x']['y'][adjacentRoom]}
-                    {'x': [room.x], 'y':[room.y]}
-                    // room_data[room_data[room][adjacentRoom]]
+                    room_data[room][0],
+                    room_data[room_data[room][1][adjacentRoom]][0]
                 ]);
-                
+                console.log("DATA", room_data[room_data[room][1][adjacentRoom]][0])
             }
-            console.log(links)
         }
 
         return (
@@ -86,7 +74,7 @@ const Map = (props) => {
                         opacity="1"
                         size="3"
                         color="#1ABC9C"
-                        data={[{ "x": currentRoom[0], "y": currentRoom[1] }]}
+                        data={[{ "x": state.position[0], "y": state.position[1] }]}
                         style={{ cursor: "pointer" }}
                     />
                 </FlexibleXYPlot>

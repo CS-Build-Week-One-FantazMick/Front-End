@@ -10,12 +10,12 @@ const Moving = () => {
 
     const dispatch = useDispatch()
     
-    let north = (move) => {
+    let north = () => {
         
         return axiosWithAuth()
-        .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "dirs": "n" })
+        .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "direction": "n" })
         .then(res => {
-            console.log(res)
+            console.log(res.data.title)
             dispatch(players(res.data.players))
             dispatch(description(res.data.description))
             dispatch(title(res.data.title))
@@ -28,8 +28,9 @@ const Moving = () => {
 
             let south = () => {
                 return axiosWithAuth()
-                .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "dirs": "s" })
+                .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "direction": "s" })
                 .then(res => {
+                    console.log(res.data.title)
                     dispatch(players(res.data.players))
                     dispatch(description(res.data.description))
                     dispatch(title(res.data.title))
@@ -46,8 +47,9 @@ const Moving = () => {
         
         let east = () => {
             return axiosWithAuth()
-            .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "dirs": "e" })
+            .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "direction": "e" })
             .then(res => {
+                console.log(res.data.title)
                 dispatch(players(res.data.players))
                 dispatch(description(res.data.description))
                 dispatch(title(res.data.title))
@@ -61,8 +63,9 @@ const Moving = () => {
 
 let west = () => {
     return axiosWithAuth()
-    .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "dirs": "w" })
+    .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "direction": "w" })
     .then(res => {
+        console.log(res.data.title)
         dispatch(players(res.data.players))
         dispatch(description(res.data.description))
         dispatch(title(res.data.title))
@@ -80,8 +83,8 @@ let west = () => {
         <div className="button-wrapper">
             <div className="moving-button" onClick={() => north()}>North</div>
             <div className="moving-button" onClick={() => south()}>South</div> 
-            <div className="moving-button" onClick={()=> west()}>West</div>
             <div className="moving-button" onClick={() => east()}>East</div>
+            <div className="moving-button" onClick={()=> west()}>West</div>
         </div>
     )
 }
