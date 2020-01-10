@@ -18,8 +18,8 @@ function App() {
     <div>
       <NavBar />
       <Switch>
-        <Route exact path='/login' component={ClientLogin}/>
-        <Route exact path='/register'component={ClientRegistration} />
+        <Route exact path='/' component={ClientLogin} />
+        <Route exact path='/register' component={ClientRegistration} />
         <Route exact path='/game' component={World} />
       </Switch>
 
