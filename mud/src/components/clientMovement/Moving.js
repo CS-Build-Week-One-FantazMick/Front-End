@@ -10,10 +10,12 @@ const Moving = () => {
 
     const dispatch = useDispatch()
     
-    let north = () => {
+    let north = (move) => {
+        
         return axiosWithAuth()
         .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "dirs": "n" })
         .then(res => {
+            console.log(res)
             dispatch(players(res.data.players))
             dispatch(description(res.data.description))
             dispatch(title(res.data.title))
@@ -74,12 +76,12 @@ let west = () => {
 
 
 
-return(
-    <div className="button-wrapper">
-            <div className="moving-button" onClick={north()}>North</div>
-            <div className="moving-button" onClick={south()}>South</div> 
-            <div className="moving-button" onClick={east()}>East</div>
-            <div className="moving-button" onClick={west()}>West</div>
+    return(
+        <div className="button-wrapper">
+            <div className="moving-button" onClick={() => north()}>North</div>
+            <div className="moving-button" onClick={() => south()}>South</div> 
+            <div className="moving-button" onClick={()=> west()}>West</div>
+            <div className="moving-button" onClick={() => east()}>East</div>
         </div>
     )
 }

@@ -16,7 +16,7 @@ function World(props) {
     useEffect(() => {
         axios
             .get(
-                `http://127.0.0.1:8000/api/adv/getallrooms`
+                `https://multi-user-dungeon-lambda.herokuapp.com/api/adv/getallrooms`
             )
             .then(res => {
                 const rooms = res.data.rooms;
@@ -49,4 +49,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(handleMovement(World))
+export default connect(mapStateToProps)(World)

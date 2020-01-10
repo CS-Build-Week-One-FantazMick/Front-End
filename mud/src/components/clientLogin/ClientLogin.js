@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { loginCoach } from '../../../actions/authActions';
+import { useDispatch } from 'react-redux';
+import { loginUser, } from '../../actions/authActions';
+import { init } from '../../actions/gameActions';
 // import { Link } from 'react-router-dom';
 // import { ReactComponent as Logo } from '../../utils/assets/coachmelogo-white.svg';
 
@@ -13,13 +14,13 @@ import React, { useEffect, useState } from 'react';
 const ClientLogin = props => {
 
     const [creds, setCreds] = useState({username:'', email: '', password: '' });
-    // const [modal, setModal] = useState(false);
+    const dispatch = useDispatch()
+    
 
-    // const triggerModal = () => {
-    //     setModal(true);
-    // };
+ 
 
     const handleChange = e => {
+        console.log('hi')
         setCreds({ ...creds, [e.target.name]: e.target.value });
     };
 
@@ -33,11 +34,11 @@ const ClientLogin = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(creds)
-        // localStorage.clear();
-        // // dispatch(loginCoach(creds)).then(() => {
-        // //     props.history.push('/dashboard');
-        // });
+        
+        dispatch(loginUser(creds))
+       
+        
+        
     };
     return (
         <>
@@ -95,6 +96,7 @@ const ClientLogin = props => {
                                 {' '}
                                 Login
                             </button>
+                          
                             <div className='register-container'>
                                 Don't have an account?{' '}
                                 {/* <Link className='register' to='/register'>
@@ -103,6 +105,10 @@ const ClientLogin = props => {
                             </div>
                         </div>
                     </form>
+                    <button type='submit' className='signup-btn' onClick ={ ()=> dispatch(init())}>
+                                {' '}
+                                get
+                            </button>
                 </div>
             </div>
         </>

@@ -27,6 +27,9 @@ export const GET_ROOM_START = 'GET_ROOM_START';
 export const GET_ROOM_SUCCESS = 'GET_ROOM_SUCCESS';
 export const GET_ROOM_FAILURE = 'GET_ROOM_FAILURE';
 
+export const PLAYER_START = 'PLAYER_START'
+export const PLAYER_SUCCESS = 'PLAYER_SUCCESS'
+
 export const SAY_START = 'SAY_START';
 export const SAY_SUCCESS = 'SAY_SUCCESS'
 export const SAY_FAILURE = 'SAY_FAILURE'

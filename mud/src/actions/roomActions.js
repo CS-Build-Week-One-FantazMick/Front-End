@@ -1,3 +1,15 @@
+import axiosWithAuth from '../utils/axiosWithAuth'
+
+import {
+GET_ROOMS_START,
+ GET_ROOMS_SUCCESS ,
+ GET_ROOMS_FAILURE,
+
+} from './types';
+
+
+
+
 export const title = (data) => {
     return {
         type: "TITLE",
@@ -25,3 +37,27 @@ export const error_msg = (data) => {
         payload: data
     }
 }
+
+
+
+export const getAllRooms = () => dispatch => {
+   
+    dispatch({ type: GET_ROOMS_START });
+        return axiosWithAuth()
+        .get(`http://multi-user-dungeon-lambda.herokuapp.com/api/adv/getallrooms`)
+        .then(res => {
+            console.log(res)
+
+            dispatch({
+                type: GET_ROOMS_SUCCESS,
+                payload: res.data.UserName
+            });
+        })
+        .catch(err => {
+            console.log(err)
+            dispatch({
+                type: GET_ROOMS_FAILURE,
+                payload: err
+            });
+        });
+};
