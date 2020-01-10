@@ -6,7 +6,7 @@ import {move} from '../../actions/gameActions'
 import './Moving.css'
 
 const Moving = () => {
-    const state = useSelector(state => state);
+    const state = useSelector(state => state.player);
     console.log(state, 'state')
   
 
