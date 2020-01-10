@@ -15,7 +15,7 @@ export default function RoomViewer ()  {
             marginBottom: '20px',
             textAlign:'center'
         }}>    
-            <h1>You are Approaching:  {(state.game.currentRoom['title'])}... </h1>
+            <h1>You are currently in:  {(state.game.currentRoom['title'])} </h1>
         </div>
     )
 }
