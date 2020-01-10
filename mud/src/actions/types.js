@@ -40,6 +40,3 @@ export const PLAYERS = 'PLAYERS'
 export const ERROR_MSG = 'ERROR_MSG'
 export const POSITION = 'POSITION'
 export const TITLE = 'TITLE'
-
-
-

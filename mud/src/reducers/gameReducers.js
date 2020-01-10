@@ -61,5 +61,5 @@ const initialState = {
         return state;
     }
   };
-  
+  //look at all these reducers
   export default gameReducers;
