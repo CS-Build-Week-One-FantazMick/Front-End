@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import axiosWithAuth from '../utils/axiosWithAuth'
 import { axiosWithAuth } from '../helpers'
 import {
     REGISTER_START,
@@ -7,18 +8,21 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGIN_START,
+    PLAYER_SUCCESS,
+    PLAYER_START,
 } from './types';
 
 //User Registration endpoint
 export const registerUser = register => dispatch => {
-    const creds = register.records[0].fields;
+   console.log(register)
     dispatch({ type: REGISTER_START });
     return axios
         .post(
-            `https://multi-user-dungeon-lambda.herokuapp.com/api/registration/`,
-            creds
+            `http://localhost:8000/api/registration/`,
+            register
         )
         .then(res => {
+            console.log(res)
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('UserName', res.data.UserName);
             dispatch({
@@ -36,11 +40,13 @@ export const registerUser = register => dispatch => {
 
 //User login endpoint
 export const loginUser = creds => dispatch => {
+    
     dispatch({ type: LOGIN_START });
     return axios
-        .post(`https://multi-user-dungeon-lambda.herokuapp.com/api/login/`, creds)
+        .post(`http://localhost:8000/api/login/`, creds)
         .then(res => {
-            localStorage.setItem('token', res.data.token);
+            console.log(res)
+            localStorage.setItem('token', res.data.key);
             localStorage.setItem('UserName', res.data.UserName);
 
             dispatch({
@@ -55,3 +61,5 @@ export const loginUser = creds => dispatch => {
             });
         });
 };
+
+

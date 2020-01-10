@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FlexibleXYPlot, LineSeries, MarkSeries } from "react-vis";
-// import room_data from "./room_data.js";
+import { useDispatch, useSelector } from 'react-redux';
+
 import styled from "styled-components";
 import store from "../../store"
 
@@ -14,25 +15,36 @@ const StyledMap = styled.div`
     background-color: black;
 `;
 
-class Map extends Component {
-    render() {
+const Map = (props) => {
+    const state = useSelector(state => state.game);
+    console.log("state",state)
+    
+    
         // Create arrays to hold point coordinates and links
-        const coordinates = [];
-        const links = [];
-        const room_data = this.props.roomData;
-        const currentRoom = store.getState().player.position;
+        
 
+        const coordinates = [];
+      
+        const links = [];
+       
+        const room_data = props.roomData;
+      
+        // const currentRoom = store.getState().player.position;
+       
+        
         // Loop through each room in the room_data object
         for (let room in room_data) {
             // Set data equal to the first element (x, y coordinates)
             // in each room of the room_data object
             let data = room_data[room][0];
+            
             coordinates.push(data);
             for (let adjacentRoom in room_data[room][1]) {
                 links.push([
                     room_data[room][0],
                     room_data[room_data[room][1][adjacentRoom]][0]
                 ]);
+               
             }
         }
 
@@ -62,13 +74,13 @@ class Map extends Component {
                         opacity="1"
                         size="3"
                         color="#1ABC9C"
-                        data={[{ "x": currentRoom[0], "y": currentRoom[1] }]}
+                        data={[{ "x": state.position[0], "y": state.position[1] }]}
                         style={{ cursor: "pointer" }}
                     />
                 </FlexibleXYPlot>
             </StyledMap>
         );
-    }
+    
 }
 
 export default Map;

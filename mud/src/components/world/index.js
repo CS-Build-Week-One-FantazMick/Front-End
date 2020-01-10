@@ -5,6 +5,7 @@ import Map from "../map/map"
 import axios from 'axios';
 import handleMovement from '../../components/player/movement'
 import { connect } from 'react-redux'
+import Moving from '../clientMovement/Moving'
 
 import store from '../../store'
 
@@ -16,7 +17,7 @@ function World(props) {
     useEffect(() => {
         axios
             .get(
-                `http://127.0.0.1:8000/api/adv/getallrooms`
+                `http://localhost:8000/api/adv/getallrooms`
             )
             .then(res => {
                 const rooms = res.data.rooms;
@@ -38,6 +39,7 @@ function World(props) {
             }}>
 
             <Map roomData={roomData} />
+            <Moving></Moving>
             {/* <Player /> */}
         </div>
     )
@@ -49,4 +51,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(handleMovement(World))
+export default connect(mapStateToProps)(World)

@@ -1,6 +1,10 @@
 import React from 'react'
 import ClientLogin from "./components/clientLogin/ClientLogin"
 import ClientRegistration from "./components/clientRegistration/ClientRegistration"
+import Moving from './components/clientMovement/Moving'
+import { useDispatch } from 'react-redux';
+import { getAllRooms } from '../src/actions/roomActions';
+import './App.css'
 import NavBar from './components/NavBar/navbar'
 
 import World from "./components/world"
@@ -8,6 +12,8 @@ import World from "./components/world"
 import { Switch, Route } from 'react-router-dom'
 
 function App() {
+  const dispatch = useDispatch()
+  dispatch(getAllRooms())
   return (
     <div>
       <NavBar />

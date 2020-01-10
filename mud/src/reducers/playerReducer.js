@@ -1,5 +1,5 @@
 const initialState = {
-    position: [10, 10]
+    position: [1, 1]
 }
 
 const playerReducer = (state = initialState, action) => {

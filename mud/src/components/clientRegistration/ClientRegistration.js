@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../actions/authActions';
 import './registration.scss';
-// import { useDispatch } from 'react-redux';
-// import { loginCoach } from '../../../actions/authActions';
+
 // import { Link } from 'react-router-dom';
 //Component Imports
 // import Modal from './Modal';
@@ -9,7 +10,9 @@ import './registration.scss';
 
 const ClientRegistration = props => {
 
-    const [creds, setCreds] = useState({ username: '', email: '', password1: '', password2: '' });
+    const [creds, setCreds] = useState({username:'', email: '', password1: '' , password2:''});
+    const dispatch = useDispatch()
+  
     // const [modal, setModal] = useState(false);
 
     // const triggerModal = () => {
@@ -20,18 +23,13 @@ const ClientRegistration = props => {
         setCreds({ ...creds, [e.target.name]: e.target.value });
     };
 
-    // useEffect(() => {
-    //     setCreds({
-    //         username : username,
-    //         email: email,
-    //         password: password
-    //     });
-    // }, [email, password, username]);
+
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(creds)
-
+        dispatch(registerUser(creds))
+        
+        
     };
     return (
         <>
