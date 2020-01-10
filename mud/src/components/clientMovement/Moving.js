@@ -6,7 +6,8 @@ import {move} from '../../actions/gameActions'
 import './Moving.css'
 
 const Moving = () => {
-    const state = useSelector(state => state.player);
+    const state = useSelector(state => state);
+    console.log(state, 'state')
   
 
 
@@ -32,6 +33,7 @@ const Moving = () => {
 }
 const south = (s) => {
     dispatch(move(s))
+
     
     
     // .post('http://localhost:8000/api/adv/move/', { "direction": "n" })
