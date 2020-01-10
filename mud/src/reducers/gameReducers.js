@@ -20,6 +20,7 @@ const initialState = {
     players: [],
     rooms: [],
     error: '',
+    position:[1,1]
   };
 
   const gameReducers = (state = initialState, action) => {
@@ -45,9 +46,11 @@ const initialState = {
           currentRoom: {
             title: action.payload.title,
             description: action.payload.description,
+            
           },
           players: action.payload.players,
           error: action.payload.error_msg,
+          position: action.payload.position
         };
       case GET_ROOMS_SUCCESS:
         return {

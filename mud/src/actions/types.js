@@ -33,3 +33,13 @@ export const PLAYER_SUCCESS = 'PLAYER_SUCCESS'
 export const SAY_START = 'SAY_START';
 export const SAY_SUCCESS = 'SAY_SUCCESS'
 export const SAY_FAILURE = 'SAY_FAILURE'
+
+
+export const DESCRIPTION = 'DESCRIPTION'
+export const PLAYERS = 'PLAYERS'
+export const ERROR_MSG = 'ERROR_MSG'
+export const POSITION = 'POSITION'
+export const TITLE = 'TITLE'
+
+
+

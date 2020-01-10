@@ -4,6 +4,11 @@ import {
 GET_ROOMS_START,
  GET_ROOMS_SUCCESS ,
  GET_ROOMS_FAILURE,
+ POSITION,
+ PLAYERS,
+ ERROR_MSG,
+ DESCRIPTION,
+ TITLE
 
 } from './types';
 
@@ -12,30 +17,37 @@ GET_ROOMS_START,
 
 export const title = (data) => {
     return {
-        type: "TITLE",
+        type: TITLE,
         payload: data
     }
 }
 
 export const description = (data) => {
     return {
-        type: "DESCRIPTION",
+        type: DESCRIPTION,
         payload: data
     }
 }
 
 export const players = (data) => {
     return {
-        type: "PLAYERS",
+        type: PLAYERS,
         payload: data
     }
 }
 
 export const error_msg = (data) => {
     return {
-        type: "ERROR_MSG",
+        type: ERROR_MSG,
         payload: data
     }
+}
+export const position = (data) => dispatch =>{
+   dispatch({
+       type:POSITION,
+       payload:data
+   })
+   
 }
 
 

@@ -42,8 +42,9 @@ export const init = () => dispatch => {
 export const move = direction => dispatch => {
     dispatch({type: MOVE_START});
     return axiosWithAuth()
-        .post('api/adv/move/', { direction })
+        .post('http://localhost:8000/api/adv/move/',  direction )
         .then(response => {
+          console.log(response)
             dispatch({type: MOVE_SUCCESS, payload:response.data});
         })
         .catch(err => {
