@@ -42,7 +42,7 @@ export const init = () => dispatch => {
 export const move = direction => dispatch => {
     dispatch({type: MOVE_START});
     return axiosWithAuth()
-        .post('http://localhost:8000/api/adv/move/',  direction )
+        .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/',  direction )
         .then(response => {
           console.log(response)
             dispatch({type: MOVE_SUCCESS, payload:response.data});
