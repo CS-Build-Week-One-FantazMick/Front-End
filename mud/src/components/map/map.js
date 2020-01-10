@@ -16,8 +16,8 @@ const StyledMap = styled.div`
 `;
 
 const Map = (props) => {
-    const state = useSelector(state => state.room);
-    console.log("state",state.position)
+    const state = useSelector(state => state.game);
+    console.log("state",state)
     
     
         // Create arrays to hold point coordinates and links
