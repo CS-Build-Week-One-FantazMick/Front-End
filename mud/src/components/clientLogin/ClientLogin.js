@@ -16,11 +16,11 @@ import { init } from '../../actions/gameActions';
 
 const ClientLogin = props => {
 
-    const [creds, setCreds] = useState({username:'', email: '', password: '' });
+    const [creds, setCreds] = useState({ username: '', email: '', password: '' });
     const dispatch = useDispatch()
-    
 
- 
+
+
 
     const handleChange = e => {
         console.log('hi')
@@ -37,11 +37,11 @@ const ClientLogin = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        
+
         dispatch(loginUser(creds))
-       
-        
-        
+
+
+
     };
     return (
         <>
@@ -115,14 +115,12 @@ const ClientLogin = props => {
                     </div>
                 </form>
 
-                    </form>
-                    <button type='submit' className='signup-btn' onClick ={ ()=> dispatch(init())}>
-                                {' '}
-                                get
-                            </button>
-                </div>
-
+                {/* <button type='submit' className='signup-btn' onClick={() => dispatch(init())}>
+                    {' '}
+                    get
+                            </button> */}
             </div>
+
         </>
     );
 };
