@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import Moving from '../clientMovement/Moving'
 
 import store from '../../store'
+import RoomViewer from '../RoomViewer';
 
 function World(props) {
 
@@ -38,8 +39,8 @@ function World(props) {
                 margin: `20px auto`,
             }}>
 
+            <RoomViewer />
             <Map roomData={roomData} />
-            <Moving></Moving>
             {/* <Player /> */}
         </div>
     )
