@@ -16,35 +16,35 @@ const StyledMap = styled.div`
 `;
 
 const Map = (props) => {
-    const state = useSelector(state => state.player);
-    console.log("position",state.position)
+    const state = useSelector(state => state.room);
+    console.log("state",state.position)
     
     
         // Create arrays to hold point coordinates and links
         
 
         const coordinates = [];
-        console.log('COORDS', coordinates)
+      
         const links = [];
-        console.log('LINKS', links)
+       
         const room_data = props.roomData;
-        console.log(props.roomData, "PROPS")
-        const currentRoom = store.getState().player.position;
-        console.log('CURRENTROOM', currentRoom)
+      
+        // const currentRoom = store.getState().player.position;
+       
         
         // Loop through each room in the room_data object
         for (let room in room_data) {
             // Set data equal to the first element (x, y coordinates)
             // in each room of the room_data object
             let data = room_data[room][0];
-            console.log("DATA1", room_data[room][0])
+            
             coordinates.push(data);
             for (let adjacentRoom in room_data[room][1]) {
                 links.push([
                     room_data[room][0],
                     room_data[room_data[room][1][adjacentRoom]][0]
                 ]);
-                console.log("DATA", room_data[room_data[room][1][adjacentRoom]][0])
+               
             }
         }
 

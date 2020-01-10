@@ -1,11 +1,12 @@
 import React from 'react';
 import axiosWithAuth from '../../utils/axiosWithAuth';
-import {useDispatch} from 'react-redux'
-import { title, description, players, error_msg } from '../../actions/roomActions'
+import {useDispatch, useSelector} from 'react-redux'
+import { title, description, players, error_msg, position } from '../../actions/roomActions'
 import './Moving.css'
 
 const Moving = () => {
-
+    const state = useSelector(state => state.room);
+  
 
 
     const dispatch = useDispatch()
@@ -13,31 +14,35 @@ const Moving = () => {
     let north = () => {
         
         return axiosWithAuth()
-        .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "direction": "n" })
+        .post('http://localhost:8000/api/adv/move/', { "direction": "n" })
         .then(res => {
-            console.log(res.data.title)
+            console.log("LOOOK AT MEEEE",res.data)
             dispatch(players(res.data.players))
             dispatch(description(res.data.description))
             dispatch(title(res.data.title))
             dispatch(error_msg(res.data.error_msg))
+            dispatch(position(res.data.position))
+           
         })
         .catch(err => {
-            console.log("soemthing went wrong with the server ", err)
+            console.log("something went wrong with the server ", err)
         })
 }
 
             let south = () => {
                 return axiosWithAuth()
-                .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "direction": "s" })
+                .post('http://localhost:8000/api/adv/move/', { "direction": "s" })
                 .then(res => {
-                    console.log(res.data.title)
+                    console.log("LOOOK AT MEEEE",res.data)
                     dispatch(players(res.data.players))
                     dispatch(description(res.data.description))
                     dispatch(title(res.data.title))
                     dispatch(error_msg(res.data.error_msg))
+                    dispatch(position(res.data.position))
+           
                 })
                 .catch(err => {
-                    console.log("soemthing went wrong with the server ", err)
+                    console.log("something went wrong with the server ", err)
                 })
         }
 
@@ -47,33 +52,37 @@ const Moving = () => {
         
         let east = () => {
             return axiosWithAuth()
-            .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "direction": "e" })
+            .post('http://localhost:8000/api/adv/move/', { "direction": "e" })
             .then(res => {
-                console.log(res.data.title)
+                console.log("LOOOK AT MEEEE",res.data)
                 dispatch(players(res.data.players))
                 dispatch(description(res.data.description))
                 dispatch(title(res.data.title))
                 dispatch(error_msg(res.data.error_msg))
+                dispatch(position(res.data.position))
+           
             })
             .catch(err => {
-                console.log("soemthing went wrong with the server ", err)
+                console.log("something went wrong with the server ", err)
             })
 }
 
 
 let west = () => {
     return axiosWithAuth()
-    .post('https://multi-user-dungeon-lambda.herokuapp.com/api/adv/move/', { "direction": "w" })
+    .post('http://localhost:8000/api/adv/move/', { "direction": "w" })
     .then(res => {
-        console.log(res.data.title)
+        console.log("LOOOK AT MEEEE",res.data)
         dispatch(players(res.data.players))
         dispatch(description(res.data.description))
         dispatch(title(res.data.title))
         dispatch(error_msg(res.data.error_msg))
+        dispatch(position(res.data.position))
+           
 
     })
     .catch(err => {
-        console.log("soemthing went wrong with the server ", err)
+        console.log("something went wrong with the server ", err)
     })
 }
 

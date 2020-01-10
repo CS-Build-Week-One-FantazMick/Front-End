@@ -37,6 +37,13 @@ export const error_msg = (data) => {
         payload: data
     }
 }
+export const position = (data) => {
+    console.log(data)
+    return {
+        type: "POSITION",
+        payload: data
+    }
+}
 
 
 
